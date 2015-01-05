@@ -1,0 +1,19 @@
+{
+    stockinfolist:[
+        {
+            name: '出库管理',
+            child: [
+                {
+                    remark: '供应商维护',
+                    moudle : "js.gysdata",
+                    gystag : "gysdata"
+                },
+                {
+                    remark: '出库数据维护',
+                    moudle : "js.gysdata",
+                    gystag : "gysdata"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.i18n.reload" value="false" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.custom.i18n.resources" value="globalMessages" />
+
+    <package name="GYSdefault" extends="struts-default,json-default" namespace="/">
+        <action name="supergyinsert" class="com.shinowit.action.GYSinference.GYSaction" method="superinsert">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="supergyselect" class="com.shinowit.action.GYSinference.GYSselectAction" method="superselect">
+            <result type="json">
+                <param name="excludeProperties">listone.*.tMeInStockInfosBySupplierId</param>
+            </result>
+        </action>
+
+        <action name="supergyupdate" class="com.shinowit.action.GYSinference.GYSupdateAction" method="gysupdate">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="supergydelete" class="com.shinowit.action.GYSinference.GYSdeleteAction" method="gysdelete">
+            <result name="success" type="json"></result>
+        </action>
+
+    </package>
+</struts>

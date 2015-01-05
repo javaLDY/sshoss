@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1989698095">
+    <data-source source="LOCAL" name="SQL Server - sshoss@localhost" uuid="ecf22daa-f59a-41a6-8233-a0534cdd6a48">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://localhost:1433;databaseName=sshoss</jdbc-url>
+      <user-name>sa</user-name>
+      <user-password>dfd9dfc2dfc3dfc4dfc5dfdd</user-password>
+      <schema-pattern>sshoss.dbo</schema-pattern>
+      <default-schemas>sshoss.*</default-schemas>
+      <libraries>
+        <library>
+          <url>file://$PROJECT_DIR$/web/WEB-INF/lib/sqljdbc4.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
+

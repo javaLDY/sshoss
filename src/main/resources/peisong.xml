@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.i18n.reload" value="false" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.custom.i18n.resources" value="globalMessages" />
+
+    <package name="peisong" extends="struts-default,json-default" namespace="/">
+        <action name="peisongselect" class="com.shinowit.action.PeiSong.PeiSongSelectAction" method="peisongselect">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="personginsert" class="com.shinowit.action.PeiSong.PeiSongInsertAction" method="personginsert">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="peisongupdate" class="com.shinowit.action.PeiSong.PeiSongUpdate" method="peisongupdate">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="peisongdelete" class="com.shinowit.action.PeiSong.PeiSongDeleteAction" method="peisongdelete">
+            <result name="success" type="json"></result>
+        </action>
+    </package>
+</struts>

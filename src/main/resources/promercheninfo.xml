@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.i18n.reload" value="false" />
+
+    <constant name="struts.custom.i18n.resources" value="globalMessages" />
+
+    <package name="common" extends="struts-default,json-default">
+        <interceptors>
+            <interceptor-stack name="mystack">
+                <interceptor-ref name="fileUpload">
+                    <param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg,image/jpg</param>
+                    <param name="maximumSize">200000</param>
+                </interceptor-ref>
+                <interceptor-ref name="json"></interceptor-ref>
+
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="mystack"></default-interceptor-ref>
+    </package>
+
+    <package name="promercheninfo" extends="common" namespace="/">
+        <action name="promercheninfoinsert" class="com.shinowit.action.ProMerChanInfo.ProMerChanInfoinsert" method="merchaninfoinsert">
+
+        </action>
+
+        <action name="promerchaninfoselect" class="com.shinowit.action.ProMerChanInfo.ProMerChanInfoselect" method="promerchaninfoselect">
+            <result type="json"></result>
+        </action>
+
+        <action name="promerchaninfoupdate" class="com.shinowit.action.ProMerChanInfo.ProMerChanInfoupdate" method="promerchaninfoupdate">
+            <result type="json"></result>
+        </action>
+
+        <action name="promerchaninfodelete" class="com.shinowit.action.ProMerChanInfo.ProMerChanInfodelete" method="promerchaninfodelete">
+            <result type="json"></result>
+        </action>
+    </package>
+
+</struts>

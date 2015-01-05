@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.i18n.reload" value="false" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.custom.i18n.resources" value="globalMessages" />
+
+    <package name="combox" extends="struts-default,json-default" namespace="/">
+        <action name="deliveryselect" class="com.shinowit.action.DingDan.DingDanStoreSelect" method="deliveryselect">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="dingdanoperinfoselect" class="com.shinowit.action.DingDan.DingDanStoreSelect" method="operinfoselect">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="outstockselect" class="com.shinowit.action.DingDan.DingDanStoreSelect" method="outstockselect">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="merberselect" class="com.shinowit.action.DingDan.DingDanStoreSelect" method="merberselect">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="merchanselect" class="com.shinowit.action.DingDan.DingDanStoreSelect" method="merchanselect">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="unitselect" class="com.shinowit.action.DingDan.DingDanStoreSelect" method="unitselect">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="operrolecombox" class="com.shinowit.action.AdminiStrator.OperRoleComBoxAction" method="operrolecombox">
+            <result name="success" type="json"></result>
+        </action>
+    </package>
+</struts>

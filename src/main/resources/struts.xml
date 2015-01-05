@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.i18n.reload" value="false" />
+
+    <constant name="struts.custom.i18n.resources" value="globalMessages" />
+
+    <package name="login" extends="struts-default,json-default" abstract="true" namespace="/">
+        <interceptors>
+            <interceptor name="session" class="com.shinowit.action.LoginInterCepTor"></interceptor>
+            <interceptor-stack name="mystack">
+                <interceptor-ref name="json"></interceptor-ref>
+                <interceptor-ref name="session"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <default-interceptor-ref name="mystack"></default-interceptor-ref>
+
+        <global-results>
+            <result name="fail">/login.jsp</result>
+        </global-results>
+
+    </package>
+
+    <package name="adminyanzheng" extends="struts-default,json-default" namespace="/">
+        <action name="operlogin" class="com.shinowit.action.LoginAction" method="operlogin">
+            <result name="success" type="json"></result>
+        </action>
+    </package>
+
+    <package name="default" extends="login" namespace="/">
+
+        <action name="zhuxiaopanduan" class="com.shinowit.action.ZhuXiaoAction" method="zhuxiaopanduan">
+            <result name="success">/zhuxiao.jsp</result>
+        </action>
+
+        <action name="loginpanduan" class="com.shinowit.action.LDYAction" method="loginpanduan">
+            <result name="success">/login.jsp</result>
+        </action>
+
+        <action name="maininsert" class="com.shinowit.action.MainAction" method="maininsert">
+            <result name="success">/main.jsp</result>
+        </action>
+
+        <action name="operinfoselect" class="com.shinowit.action.OperInfoSelectAction" method="operinfoselect">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="singleinstockinfo" class="com.shinowit.action.JiaQuanStockInfoAction" method="stockinfoselect">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="stockinfoselect" class="com.shinowit.action.TotalKuCunAction" method="stockinfoselect">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="menulistselect" class="com.shinowit.action.MainShowAction" method="menuselect">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="dayinstocknumselect" class="com.shinowit.action.DayInstockNum" method="dayinstocknumselect">
+            <result name="success" type="json">
+                <param name="excludeProperties">
+                    listvalue.*TMeMerchandiseCInfoByMerchandiseCid;
+                    listvalue.*TMeProStatusInfoByProStatusId;
+                    listvalue.*TMeUnitInfoByUnitId;
+                    listvalue.*TMeOrderDetailsInfosByMerchandiseId;
+                    listvalue.*TMeOutStockDetailsInfosByMerchandiseId;
+                    listvalue.*TAuOperInfoByOperId;
+                    listvalue.*TBaSupplierInfoBySupplierId;
+                </param>
+            </result>
+        </action>
+
+        <action name="maxchukupriceselect" class="com.shinowit.action.MaxChuKuPrice" method="maxchukupriceselect">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="mainquanxianselect" class="com.shinowit.action.MainQuanXianShow" method="mainquanxianselect">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="generatBillCode" class="com.shinowit.action.ProduceBillCodeAction" method="generatBillCode">
+            <result name="success" type="json"></result>
+        </action>
+
+        <action name="buttonselect" class="com.shinowit.action.ButonAuthorSelectAction" method="buttonselect">
+            <result name="success" type="json"></result>
+        </action>
+    </package>
+
+    <include file="gys.xml"></include>
+    <include file="mercheninfo.xml"></include>
+    <include file="unitinfo.xml"></include>
+    <include file="prostatusinfo.xml"></include>
+    <include file="promercheninfo.xml"></include>
+    <include file="instockinfo.xml"></include>
+    <include file="chuku.xml"></include>
+    <include file="administrator.xml"></include>
+    <include file="peisong.xml"></include>
+    <include file="ComBox.xml"></include>
+    <include file="dingdan.xml"></include>
+</struts>

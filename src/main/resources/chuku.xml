@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.i18n.reload" value="false" />
+
+    <constant name="struts.custom.i18n.resources" value="globalMessages" />
+
+    <package name="chuku" extends="struts-default,json-default" namespace="/">
+        <action name="chukuinsert" class="com.shinowit.action.chuku.ChuKuInsertAction" method="chukuinsert">
+            <result type="json"></result>
+        </action>
+
+        <action name="chukuoutstockselect" class="com.shinowit.action.chuku.ChuKuOutStockselect" method="chukuoutstockselect">
+            <result type="json">
+                <param name="excludeProperties">
+                    .*TMeOrderInfosByOutBillCode,
+                    .*TMeOutStockDetailsInfosByOutBillCode,
+                    .*TAuRoleInfoByRoleId,
+                    .*TBaLogInfosByOperId,
+                    .*TMeInStockInfosByOperId,
+                    .*TMeOrderInfosByOperId
+                </param>
+            </result>
+        </action>
+
+        <action name="chukuoutstockdetailselect" class="com.shinowit.action.chuku.ChuKuOutStockDetailselect" method="chukuoutstockdetailselect">
+            <result type="json">
+                <param name="excludeProperties">
+                    .*TMeInStockDetailsInfosByMerchandiseId,
+                    .*TMeMerchandiseCInfoByMerchandiseCid,
+                    .*TMeProStatusInfoByProStatusId,
+                    .*TMeUnitInfoByUnitId,
+                    .*TMeOrderDetailsInfosByMerchandiseId,
+                    .*TMeStockInfosByMerchandiseId,
+                    .*TMeOrderInfosByOutBillCode,
+                    .*TAuOperInfoByOperId
+                </param>
+            </result>
+        </action>
+
+        <action name="chukudoubledelete" class="com.shinowit.action.chuku.ChuKuDoubleDelete" method="doubledelete">
+            <result type="json"></result>
+        </action>
+
+        <action name="singlechukudetailsdelete" class="com.shinowit.action.chuku.SingleChuKudetailsdelete" method="singleckdetaildelete">
+            <result type="json"></result>
+        </action>
+
+        <action name="singlechukudanupdatemoney" class="com.shinowit.action.chuku.Singleoutstockinfototalmoney" method="singleupdatamoney">
+            <result type="json"></result>
+        </action>
+
+        <action name="doublechukudanupdate" class="com.shinowit.action.chuku.ChuKuDoubleUpdate" method="outstockdoubleupdate">
+            <result type="json"></result>
+        </action>
+    </package>
+
+</struts>

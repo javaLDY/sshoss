@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.i18n.reload" value="false" />
+
+    <constant name="struts.custom.i18n.resources" value="globalMessages" />
+
+    <package name="common" extends="struts-default,json-default">
+    <interceptors>
+        <interceptor-stack name="mystack">
+            <interceptor-ref name="json"></interceptor-ref>
+
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </interceptor-stack>
+    </interceptors>
+    <default-interceptor-ref name="mystack"></default-interceptor-ref>
+</package>
+
+    <package name="administrator" extends="common" namespace="/">
+        <action name="operinfoinsert" class="com.shinowit.action.AdminiStrator.OperInfoInsertAction" method="operinfoinsert">
+            <result type="json"></result>
+        </action>
+
+        <action name="operupdate" class="com.shinowit.action.AdminiStrator.OperInfoUpdataeAction" method="operupdate">
+            <result type="json"></result>
+        </action>
+
+        <action name="operdelete" class="com.shinowit.action.AdminiStrator.OperInfoDelete" method="operdelete">
+            <result type="json"></result>
+        </action>
+
+        <action name="operselect" class="com.shinowit.action.AdminiStrator.OperInfoSelectAction" method="operselect">
+            <result type="json">
+                <param name="excludeProperties">
+                    operinfolist.*.TBaLogInfosByOperId,
+                    operinfolist.*.TMeInStockInfosByOperId,
+                    operinfolist.*.TMeOrderInfosByOperId,
+                    operinfolist.*.TMeOutStockInfosByOperId,
+                    operinfolist.*.TAuAuthorizationsByRoleId
+                </param>
+            </result>
+        </action>
+
+        <action name="roleinsert" class="com.shinowit.action.AdminiStrator.RoleInfoInsertAction" method="roleinsert">
+            <result type="json"></result>
+        </action>
+
+        <action name="roleselect" class="com.shinowit.action.AdminiStrator.RoleInfoSelectAction" method="roleselect">
+            <result type="json">
+                <param name="excludeProperties">
+                    roleselect.*TAuOperInfosByRoleId
+                    roleselect.*.TAuAuthorizationsByRoleId
+                </param>
+            </result>
+        </action>
+
+        <action name="jdbcroleupdate" class="com.shinowit.action.AdminiStrator.NewUpdateRoleAction" method="roleupdate">
+            <result type="json"></result>
+        </action>
+
+        <action name="roledelete" class="com.shinowit.action.AdminiStrator.RoleInfoDeleteAction" method="roledelete">
+            <result type="json"></result>
+        </action>
+
+        <action name="menuselect" class="com.shinowit.action.AdminiStrator.MenuSelectAction" method="menuselect">
+            <result type="json">
+                <param name="excludeProperties">
+                    listmenu.*TAuAuthorizationsByMenuId,
+                    listmenu.*TAuMenuInfoByMenuId,
+                    listmenu.*newmenuinfosByMenuId
+                </param>
+            </result>
+        </action>
+
+        <action name="menuinsert" class="com.shinowit.action.AdminiStrator.MenuInsertAction" method="menuinsert">
+            <result type="json"></result>
+        </action>
+
+        <action name="menudelete" class="com.shinowit.action.AdminiStrator.MenuDeleteAction" method="menudelete">
+            <result type="json"></result>
+        </action>
+
+        <action name="menuupdate" class="com.shinowit.action.AdminiStrator.MenuUpdateAction" method="menuupdate">
+            <result type="json"></result>
+        </action>
+
+        <action name="menurelateinsert" class="com.shinowit.action.AdminiStrator.MenuRelateInsertAction" method="menurelateinsert">
+            <result type="json"></result>
+        </action>
+
+        <action name="menurelateupdate" class="com.shinowit.action.AdminiStrator.MenuRelateUpdateAction" method="menurelateupdate">
+            <result type="json"></result>
+        </action>
+
+        <action name="menurelatedelete" class="com.shinowit.action.AdminiStrator.MenuRelateDeleteAction" method="menurelatedelete">
+            <result type="json"></result>
+        </action>
+
+        <action name="menurelateselect" class="com.shinowit.action.AdminiStrator.MenuRelateSelectAction" method="menurelateselect">
+            <result type="json">
+                <param name="excludeProperties">
+                    newmenurelatelist.*TAuAuthorizationsByMenuId,
+                    newmenurelatelist.*newmenuinfosByMenuId
+                </param>
+            </result>
+        </action>
+
+        <action name="treeNodeSelect" class="com.shinowit.action.TreeNodeSelect" method="treeselect">
+            <result type="json"></result>
+        </action>
+
+        <action name="roletreeinsert" class="com.shinowit.action.AdminiStrator.RoleAuthorSelectAction" method="roletreeinsert">
+            <result type="json"></result>
+        </action>
+
+    </package>
+
+</struts>

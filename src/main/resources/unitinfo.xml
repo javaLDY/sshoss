@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE struts PUBLIC
+                "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+                "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<constant name="struts.i18n.reload" value="false" />
+
+<constant name="struts.custom.i18n.resources" value="globalMessages" />
+
+<package name="unitinfo" extends="struts-default,json-default" namespace="/">
+    <action name="unitinfoinsert" class="com.shinowit.action.UnitInfo.Unitinfoinsert" method="unitinsert">
+        <result type="json"></result>
+    </action>
+
+    <action name="unitinfoselect" class="com.shinowit.action.UnitInfo.UnitInfoselectAction" method="unitinfoselect">
+        <result type="json"></result>
+    </action>
+
+    <action name="unitinfoupdate" class="com.shinowit.action.UnitInfo.UnitInfoupdateAction" method="unitupdate">
+        <result type="json"></result>
+    </action>
+
+    <action name="unitinfodelete" class="com.shinowit.action.UnitInfo.UnitInfodeleteAction" method="unitdelete">
+        <result type="json"></result>
+    </action>
+</package>
+
+</struts>

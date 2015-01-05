@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.i18n.reload" value="false" />
+
+    <constant name="struts.custom.i18n.resources" value="globalMessages" />
+
+    <package name="merchaninfo" extends="struts-default,json-default" namespace="/">
+        <action name="mercheninsert" class="com.shinowit.action.MerChanInfo.MerChenInfoAction" method="mercheninfoinsert">
+            <result type="json"></result>
+        </action>
+
+        <action name="merchenselect" class="com.shinowit.action.MerChanInfo.MerCbenCselectAction" method="MerchenCselect">
+            <result type="json"></result>
+        </action>
+
+        <action name="merchenupdate" class="com.shinowit.action.MerChanInfo.MerChenCupdateAction" method="updatemerchencinfo">
+            <result type="json"></result>
+        </action>
+
+        <action name="merchendelete" class="com.shinowit.action.MerChanInfo.MerChenCdeleteAction" method="deletemerchencinfo">
+            <result type="json"></result>
+        </action>
+    </package>
+
+</struts>

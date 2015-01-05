@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="SQL Server - sshoss@localhost" uuid="ecf22daa-f59a-41a6-8233-a0534cdd6a48">
+    <database-info product="Microsoft SQL Server" version="10.00.1600" jdbc-version="4.0" driver-name="Microsoft JDBC Driver 4.0 for SQL Server" driver-version="4.0.2206.100">
+      <extra-name-characters>$#@</extra-name-characters>
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="dbo" catalog="sshoss"/>
+    <table name="TAu_Authorization" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="ID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="MenuID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="RoleID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PK__TAu_Auth__3214EC277F60ED59" columns="ID"/>
+      <foreign-key name="FK_i82mhd3gn5e44cpqvp80vk9d8" columns="MenuID" ref-table="TAu_MenuInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="MenuID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_3wiuaidtn5893pplpmj5nxsk0" columns="RoleID" ref-table="TAu_RoleInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="RoleID" update-rule="1" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="TAu_MenuInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="MenuID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="text" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="id" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="parent_node" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="moudle" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="tag" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="src" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PK__TAu_Menu__C99ED25003317E3D" columns="MenuID"/>
+      <foreign-key name="FK_TAu_MenuInfo_TAu_MenuInfo" columns="MenuID" ref-table="TAu_MenuInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="MenuID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <exported-key name="FK_i82mhd3gn5e44cpqvp80vk9d8" table="TAu_Authorization" schema="dbo" catalog="sshoss" columns="MenuID"/>
+      <exported-key name="FK_TAu_MenuInfo_TAu_MenuInfo" table="TAu_MenuInfo" schema="dbo" catalog="sshoss" columns="MenuID"/>
+      <exported-key name="FK_3y7ufv8nvdm3x77x2huymmx8n" table="TBa_LogInfo" schema="dbo" catalog="sshoss" columns="MenuID"/>
+      <exported-key name="FK_menuinfo_TAu_MenuInfo" table="newmenuinfo" schema="dbo" catalog="sshoss" columns="MenuID"/>
+    </table>
+    <table name="TAu_OperInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="OperID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Address" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Email" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="LinkTel" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Mobile" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="OperName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Pwd" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="QQ" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SortID" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="State" sqlType="bit" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="RoleID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PK__TAu_Oper__F288E41D07020F21" columns="OperID"/>
+      <foreign-key name="FK_fwqbc9rjqfoy5od7rs0dsvvv9" columns="RoleID" ref-table="TAu_RoleInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="RoleID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <exported-key name="FK_kmi3mfyvanydvghu4yo4uvjc9" table="TBa_LogInfo" schema="dbo" catalog="sshoss" columns="OperID"/>
+      <exported-key name="FK_a2a920889a0823elal15urjmm" table="TMe_InStockInfo" schema="dbo" catalog="sshoss" columns="OperID"/>
+      <exported-key name="FK_cfpk4uy5mantk1u7pmp9f2yah" table="TMe_OrderInfo" schema="dbo" catalog="sshoss" columns="OperID"/>
+      <exported-key name="FK_3knobi3vl30b9qcpdnbkr75bx" table="TMe_OutStockInfo" schema="dbo" catalog="sshoss" columns="OperID"/>
+    </table>
+    <table name="TAu_RoleInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="RoleID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="RoleName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SortID" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="State" sqlType="bit" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <primary-key name="PK__TAu_Role__8AFACE3A0AD2A005" columns="RoleID"/>
+      <exported-key name="FK_3wiuaidtn5893pplpmj5nxsk0" table="TAu_Authorization" schema="dbo" catalog="sshoss" columns="RoleID"/>
+      <exported-key name="FK_fwqbc9rjqfoy5od7rs0dsvvv9" table="TAu_OperInfo" schema="dbo" catalog="sshoss" columns="RoleID"/>
+    </table>
+    <table name="TBa_ClassInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="CID" sqlType="varchar" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CV1" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="CV2" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="CV3" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="CV4" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="CV5" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="CV6" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="CV7" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="CV8" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="CV9" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ID" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <primary-key name="PK__TBa_Clas__C1F8DC590EA330E9" columns="CID"/>
+    </table>
+    <table name="TBa_DeliveryInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="DeliveryID" sqlType="varchar" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Address" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="DeliveryName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Email" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ID" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="LinkName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="LinkTel" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="QQ" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SortID" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="State" sqlType="bit" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <primary-key name="PK__TBa_Deli__626D8FEE1273C1CD" columns="DeliveryID"/>
+      <exported-key name="FK_p1876f0byets23jd4yov30f14" table="TMe_OrderInfo" schema="dbo" catalog="sshoss" columns="DeliveryID"/>
+    </table>
+    <table name="TBa_LogInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="ID" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Content" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="IP" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="LogTime" sqlType="datetime2" precision="27" scale="7" nullable="true" jdbcType="93"/>
+      <column name="MenuID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="OperID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PK__TBa_LogI__3214EC27164452B1" columns="ID"/>
+      <foreign-key name="FK_3y7ufv8nvdm3x77x2huymmx8n" columns="MenuID" ref-table="TAu_MenuInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="MenuID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_kmi3mfyvanydvghu4yo4uvjc9" columns="OperID" ref-table="TAu_OperInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="OperID" update-rule="1" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="TBa_MembeAddrInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="ID" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="IsDefault" sqlType="bit" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="PostCode" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="RecAddress" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="RecMan" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Tel" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UserName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PK__TBa_Memb__3214EC271A14E395" columns="ID"/>
+      <foreign-key name="FK_g6xvm3vmotl9hfe4q03i1fji0" columns="UserName" ref-table="TBa_MemberInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="UserName" update-rule="1" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="TBa_MemberInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="UserName" sqlType="varchar" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ActiveDate" sqlType="datetime2" precision="27" scale="7" nullable="true" jdbcType="93"/>
+      <column name="Balance" sqlType="numeric" precision="19" scale="2" nullable="true" jdbcType="2"/>
+      <column name="Email" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="lName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Pwd" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="RegDate" sqlType="datetime2" precision="27" scale="7" nullable="true" jdbcType="93"/>
+      <column name="Remark" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Status" sqlType="bit" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <primary-key name="PK__TBa_Memb__C9F284571DE57479" columns="UserName"/>
+      <exported-key name="FK_g6xvm3vmotl9hfe4q03i1fji0" table="TBa_MembeAddrInfo" schema="dbo" catalog="sshoss" columns="UserName"/>
+      <exported-key name="FK_6tplgdm2oobt2pxgo2gx2c1pq" table="TBa_SupplyRecordInfo" schema="dbo" catalog="sshoss" columns="UserName"/>
+      <exported-key name="FK_8ipjvs5i2gocreewr1sf4gonf" table="TMe_OrderInfo" schema="dbo" catalog="sshoss" columns="UserName"/>
+    </table>
+    <table name="TBa_SupplierInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="SupplierID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Address" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Email" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="LinkName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="LinkTel" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="QQ" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SortID" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="State" sqlType="bit" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="SupplierAB" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SupplierName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PK__TBa_Supp__4BE6669421B6055D" columns="SupplierID"/>
+      <exported-key name="FK_kabo153c5no0yfxg10y9hh843" table="TMe_InStockInfo" schema="dbo" catalog="sshoss" columns="SupplierID"/>
+    </table>
+    <table name="TBa_SupplyRecordInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="ID" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="PayAccountNo" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PayBank" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="RecAccountNo" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="RecBank" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Remark" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SupplyTime" sqlType="datetime2" precision="27" scale="7" nullable="true" jdbcType="93"/>
+      <column name="TotalMoney" sqlType="numeric" precision="19" scale="2" nullable="true" jdbcType="2"/>
+      <column name="UserName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PK__TBa_Supp__3214EC2725869641" columns="ID"/>
+      <foreign-key name="FK_6tplgdm2oobt2pxgo2gx2c1pq" columns="UserName" ref-table="TBa_MemberInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="UserName" update-rule="1" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="TMe_InStockDetailsInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="ID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Num" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Price" sqlType="numeric" precision="19" scale="2" nullable="true" jdbcType="2"/>
+      <column name="BillCode" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="MerchandiseID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PK__TMe_InSt__3214EC2729572725" columns="ID"/>
+      <foreign-key name="FK_p1o9sga6ah1qk5yx17i9983c3" columns="BillCode" ref-table="TMe_InStockInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="BillCode" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_s6idd73ydmmifuhid87rxcygh" columns="MerchandiseID" ref-table="TMe_MerchandiseInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="MerchandiseID" update-rule="1" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="TMe_InStockInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="BillCode" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Handler" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="InTime" sqlType="date" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="InType" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="Remark" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="TotalMoney" sqlType="numeric" precision="19" scale="2" nullable="true" jdbcType="2"/>
+      <column name="OperID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="SupplierID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PK__TMe_InSt__1CC9F83F2D27B809" columns="BillCode"/>
+      <foreign-key name="FK_a2a920889a0823elal15urjmm" columns="OperID" ref-table="TAu_OperInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="OperID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_kabo153c5no0yfxg10y9hh843" columns="SupplierID" ref-table="TBa_SupplierInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="SupplierID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <exported-key name="FK_p1o9sga6ah1qk5yx17i9983c3" table="TMe_InStockDetailsInfo" schema="dbo" catalog="sshoss" columns="BillCode"/>
+    </table>
+    <table name="TMe_MerchandiseCInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="MerchandiseCID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="MerchandiseCName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SortID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="State" sqlType="bit" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <primary-key name="PK__TMe_Merc__485332F730F848ED" columns="MerchandiseCID"/>
+      <exported-key name="FK_m9bxgjmc08b0fsoekdpl8werw" table="TMe_MerchandiseInfo" schema="dbo" catalog="sshoss" columns="MerchandiseCID"/>
+    </table>
+    <table name="TMe_MerchandiseInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="MerchandiseID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ClickCount" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Describe" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="MerchandiseAB" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="MerchandiseName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PicPath" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Price" sqlType="numeric" precision="19" scale="2" nullable="true" jdbcType="2"/>
+      <column name="Remark" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SaleStatus" sqlType="bit" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="Spec" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="MerchandiseCID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="ProStatusID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="UnitID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PK__TMe_Merc__F6F4C3D434C8D9D1" columns="MerchandiseID"/>
+      <foreign-key name="FK_m9bxgjmc08b0fsoekdpl8werw" columns="MerchandiseCID" ref-table="TMe_MerchandiseCInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="MerchandiseCID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_ee413ufg9nwnv6qchd38tncb9" columns="ProStatusID" ref-table="TMe_ProStatusInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="ProStatusID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_ghnexfkevt3pipsfox3hnb49w" columns="UnitID" ref-table="TMe_UnitInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="UnitID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <exported-key name="FK_s6idd73ydmmifuhid87rxcygh" table="TMe_InStockDetailsInfo" schema="dbo" catalog="sshoss" columns="MerchandiseID"/>
+      <exported-key name="FK_ixjp461j75w79fbemh103kx3g" table="TMe_OrderDetailsInfo" schema="dbo" catalog="sshoss" columns="MerchandiseID"/>
+      <exported-key name="FK_j25hhtlfj6gak0v7lw51plkdl" table="TMe_OutStockDetailsInfo" schema="dbo" catalog="sshoss" columns="MerchandiseID"/>
+      <exported-key name="FK_pusl3x73gf82le55shiljkcbl" table="TMe_StockInfo" schema="dbo" catalog="sshoss" columns="MerchandiseID"/>
+    </table>
+    <table name="TMe_OrderDetailsInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="ID" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Num" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Price" sqlType="numeric" precision="19" scale="2" nullable="true" jdbcType="2"/>
+      <column name="MerchandiseID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="BillCode" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UnitID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PK__TMe_Orde__3214EC2738996AB5" columns="ID"/>
+      <foreign-key name="FK_ixjp461j75w79fbemh103kx3g" columns="MerchandiseID" ref-table="TMe_MerchandiseInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="MerchandiseID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_ql0pp3ailn4h25xrntu4b9aee" columns="BillCode" ref-table="TMe_OrderInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="BillCode" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_t7har1dmvaoaxjt8oct0ccxl4" columns="UnitID" ref-table="TMe_UnitInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="UnitID" update-rule="1" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="TMe_OrderInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="BillCode" sqlType="varchar" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="BillStatus" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="ID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="LinkTel" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="OrderTime" sqlType="datetime2" precision="27" scale="7" nullable="true" jdbcType="93"/>
+      <column name="PostBillCode" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PostCode" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="RecAddress" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="RecMan" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Remark" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="TotalMoney" sqlType="numeric" precision="19" scale="2" nullable="true" jdbcType="2"/>
+      <column name="OperID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="DeliveryID" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="UserName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="OutBillCode" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PK__TMe_Orde__1CC9F83F3C69FB99" columns="BillCode"/>
+      <foreign-key name="FK_cfpk4uy5mantk1u7pmp9f2yah" columns="OperID" ref-table="TAu_OperInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="OperID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_p1876f0byets23jd4yov30f14" columns="DeliveryID" ref-table="TBa_DeliveryInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="DeliveryID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_8ipjvs5i2gocreewr1sf4gonf" columns="UserName" ref-table="TBa_MemberInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="UserName" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_s83co0qgjj6p8adbxagia2rc1" columns="OutBillCode" ref-table="TMe_OutStockInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="OutBillCode" update-rule="1" delete-rule="1" deferrability="2"/>
+      <exported-key name="FK_ql0pp3ailn4h25xrntu4b9aee" table="TMe_OrderDetailsInfo" schema="dbo" catalog="sshoss" columns="BillCode"/>
+    </table>
+    <table name="TMe_OutStockDetailsInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="ID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Num" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Price" sqlType="numeric" precision="19" scale="2" nullable="true" jdbcType="2"/>
+      <column name="stock_price" sqlType="numeric" precision="19" scale="2" nullable="true" jdbcType="2"/>
+      <column name="MerchandiseID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="OutBillCode" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PK__TMe_OutS__3214EC27403A8C7D" columns="ID"/>
+      <foreign-key name="FK_j25hhtlfj6gak0v7lw51plkdl" columns="MerchandiseID" ref-table="TMe_MerchandiseInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="MerchandiseID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <foreign-key name="FK_8u5h5plomqncolm6h1ecnjyl3" columns="OutBillCode" ref-table="TMe_OutStockInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="OutBillCode" update-rule="1" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="TMe_OutStockInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="OutBillCode" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Handler" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="OutTime" sqlType="datetime2" precision="27" scale="7" nullable="true" jdbcType="93"/>
+      <column name="OutType" sqlType="smallint" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="OutStockInfoName" sqlType="varchar" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Remark" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="TotalMoney" sqlType="numeric" precision="19" scale="2" nullable="true" jdbcType="2"/>
+      <column name="OperID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PK__TMe_OutS__AB0D4BA5440B1D61" columns="OutBillCode"/>
+      <foreign-key name="FK_3knobi3vl30b9qcpdnbkr75bx" columns="OperID" ref-table="TAu_OperInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="OperID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <exported-key name="FK_s83co0qgjj6p8adbxagia2rc1" table="TMe_OrderInfo" schema="dbo" catalog="sshoss" columns="OutBillCode"/>
+      <exported-key name="FK_8u5h5plomqncolm6h1ecnjyl3" table="TMe_OutStockDetailsInfo" schema="dbo" catalog="sshoss" columns="OutBillCode"/>
+    </table>
+    <table name="TMe_ProStatusInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="ProStatusID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ProStatusName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Remark" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Status" sqlType="bit" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <primary-key name="PK__TMe_ProS__ED6FCAC547DBAE45" columns="ProStatusID"/>
+      <exported-key name="FK_ee413ufg9nwnv6qchd38tncb9" table="TMe_MerchandiseInfo" schema="dbo" catalog="sshoss" columns="ProStatusID"/>
+    </table>
+    <table name="TMe_StockInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="ID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="AvgPrice" sqlType="numeric" precision="19" scale="2" nullable="true" jdbcType="2"/>
+      <column name="Num" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="MerchandiseID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PK__TMe_Stoc__3214EC274BAC3F29" columns="ID"/>
+      <foreign-key name="FK_pusl3x73gf82le55shiljkcbl" columns="MerchandiseID" ref-table="TMe_MerchandiseInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="MerchandiseID" update-rule="1" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="TMe_UnitInfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="UnitID" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Remark" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Status" sqlType="bit" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <primary-key name="PK__TMe_Unit__44F5EC954F7CD00D" columns="UnitID"/>
+      <exported-key name="FK_ghnexfkevt3pipsfox3hnb49w" table="TMe_MerchandiseInfo" schema="dbo" catalog="sshoss" columns="UnitID"/>
+      <exported-key name="FK_t7har1dmvaoaxjt8oct0ccxl4" table="TMe_OrderDetailsInfo" schema="dbo" catalog="sshoss" columns="UnitID"/>
+    </table>
+    <table name="View_Pie" schema="dbo" catalog="sshoss" type="VIEW">
+      <column name="MerchandiseName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Num" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="ID" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="InTime" sqlType="date" precision="10" scale="0" nullable="false" jdbcType="91"/>
+    </table>
+    <table name="View_zhu" schema="dbo" catalog="sshoss" type="VIEW">
+      <column name="ID" sqlType="int" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="OutTime" sqlType="datetime2" precision="27" scale="7" nullable="true" jdbcType="93"/>
+      <column name="Num" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Price" sqlType="numeric" precision="19" scale="2" nullable="true" jdbcType="2"/>
+      <column name="MerchandiseName" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="newmenuinfo" schema="dbo" catalog="sshoss" type="TABLE">
+      <column name="MenuID" sqlType="int" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="src" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="menuinfoid" sqlType="int identity" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="text" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="module" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="tag" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="leaf" sqlType="bit" precision="1" scale="0" nullable="true" jdbcType="-7"/>
+      <column name="id" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PK_MENUINFO" columns="menuinfoid"/>
+      <foreign-key name="FK_menuinfo_TAu_MenuInfo" columns="MenuID" ref-table="TAu_MenuInfo" ref-schema="dbo" ref-catalog="sshoss" ref-columns="MenuID" update-rule="1" delete-rule="1" deferrability="2"/>
+    </table>
+  </data-source>
+</component>
